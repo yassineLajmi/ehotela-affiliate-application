@@ -1,0 +1,46 @@
+entity Affiliate {
+	numeroAffilie Long required,
+	titre String
+	noms String
+	adresseLigne1 String,
+	adresseLigne2 String,
+	numeroPostal Integer,
+	localite String,
+	canton String,
+	langue Integer,
+	groupeCode Integer,
+	groupeNom String,
+	isCcnt Integer,
+	timeType String,
+	groupType String required,
+	weeklyWorkTime BigDecimal required
+}
+
+entity Rubric {
+	description String required,
+	id Long required,
+	startDate Instant required,
+	endDate Instant required,
+	rubricType String required,
+	totalRate BigDecimal,
+	sex String,
+	startAge Integer required,
+	endAge Integer required,
+	employeeRate BigDecimal required,
+	diRate BigDecimal,
+	ailSalaryLimit BigDecimal
+}
+
+entity Subscription{
+	idAssurance String required,
+	startDate Instant required,
+	endDate Instant required
+}
+
+relationship OneToMany {
+	Affiliate{affiliate} to Subscription,
+	Affiliate{employee} to Rubric
+}
+
+
+
