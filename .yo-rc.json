@@ -1,0 +1,49 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "affiliate",
+    "packageName": "ch.hotela.affiliate",
+    "packageFolder": "ch/hotela/affiliate",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "ar-ly",
+      "fr",
+      "de",
+      "it",
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.2",
+    "jwtSecretKey": "MzEzZTUxYjI1NDQ4NDdiNTE5M2MwYjQ5NmEzOTY0M2NhMDViODI3OTE2ZGEwN2IzNGJmZjgzMmUzN2JiNTE5NTVjMDNkMjc5MDBlZDAxYTUzY2VmODQ1NmI3MjFkMDA3MDY4ODkzN2EwNDEzOWIxNTk3MWY3OWU3MmZlY2NjYWY=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "yassineLajmi",
+  "repository-name": "ehotela-affiliate-application"
+}
