@@ -19,8 +19,8 @@ entity Affiliate {
 entity Rubric {
 	description String required,
 	id Long required,
-	startDate Instant required,
-	endDate Instant required,
+	startDate LocalDate required,
+	endDate LocalDate required,
 	rubricType String required,
 	totalRate BigDecimal,
 	sex String,
@@ -31,16 +31,21 @@ entity Rubric {
 	ailSalaryLimit BigDecimal
 }
 
-entity Subscription{
+entity AffSubscription{
 	idAssurance String required,
-	startDate Instant required,
-	endDate Instant required
+	startDate LocalDate required,
+	endDate LocalDate required
 }
 
 relationship OneToMany {
-	Affiliate{affiliate} to Subscription,
 	Affiliate{employee} to Rubric
 }
 
+relationship ManyToOne {
+	AffSubscription{affiliate} to Affiliate,
+}
 
 
+paginate Affiliate with pagination
+
+service Affiliate with serviceImpl

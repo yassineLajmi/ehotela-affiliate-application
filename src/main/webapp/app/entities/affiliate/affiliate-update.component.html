@@ -1,0 +1,125 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-affiliate-heading" jhiTranslate="affiliateApp.affiliate.home.createOrEditLabel">Create or edit a Affiliate</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!affiliate.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="affiliate.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.numeroAffilie" for="field_numeroAffilie">Numero Affilie</label>
+                    <input type="number" class="form-control" name="numeroAffilie" id="field_numeroAffilie"
+                        [(ngModel)]="affiliate.numeroAffilie" required/>
+                    <div [hidden]="!(editForm.controls.numeroAffilie?.dirty && editForm.controls.numeroAffilie?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numeroAffilie?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numeroAffilie?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.titre" for="field_titre">Titre</label>
+                    <input type="text" class="form-control" name="titre" id="field_titre"
+                        [(ngModel)]="affiliate.titre" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.noms" for="field_noms">Noms</label>
+                    <input type="text" class="form-control" name="noms" id="field_noms"
+                        [(ngModel)]="affiliate.noms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.adresseLigne1" for="field_adresseLigne1">Adresse Ligne 1</label>
+                    <input type="text" class="form-control" name="adresseLigne1" id="field_adresseLigne1"
+                        [(ngModel)]="affiliate.adresseLigne1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.adresseLigne2" for="field_adresseLigne2">Adresse Ligne 2</label>
+                    <input type="text" class="form-control" name="adresseLigne2" id="field_adresseLigne2"
+                        [(ngModel)]="affiliate.adresseLigne2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.numeroPostal" for="field_numeroPostal">Numero Postal</label>
+                    <input type="number" class="form-control" name="numeroPostal" id="field_numeroPostal"
+                        [(ngModel)]="affiliate.numeroPostal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.localite" for="field_localite">Localite</label>
+                    <input type="text" class="form-control" name="localite" id="field_localite"
+                        [(ngModel)]="affiliate.localite" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.canton" for="field_canton">Canton</label>
+                    <input type="text" class="form-control" name="canton" id="field_canton"
+                        [(ngModel)]="affiliate.canton" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.langue" for="field_langue">Langue</label>
+                    <input type="number" class="form-control" name="langue" id="field_langue"
+                        [(ngModel)]="affiliate.langue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.groupeCode" for="field_groupeCode">Groupe Code</label>
+                    <input type="number" class="form-control" name="groupeCode" id="field_groupeCode"
+                        [(ngModel)]="affiliate.groupeCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.groupeNom" for="field_groupeNom">Groupe Nom</label>
+                    <input type="text" class="form-control" name="groupeNom" id="field_groupeNom"
+                        [(ngModel)]="affiliate.groupeNom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.isCcnt" for="field_isCcnt">Is Ccnt</label>
+                    <input type="number" class="form-control" name="isCcnt" id="field_isCcnt"
+                        [(ngModel)]="affiliate.isCcnt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.timeType" for="field_timeType">Time Type</label>
+                    <input type="text" class="form-control" name="timeType" id="field_timeType"
+                        [(ngModel)]="affiliate.timeType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.groupType" for="field_groupType">Group Type</label>
+                    <input type="text" class="form-control" name="groupType" id="field_groupType"
+                        [(ngModel)]="affiliate.groupType" required/>
+                    <div [hidden]="!(editForm.controls.groupType?.dirty && editForm.controls.groupType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.groupType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.affiliate.weeklyWorkTime" for="field_weeklyWorkTime">Weekly Work Time</label>
+                    <input type="number" class="form-control" name="weeklyWorkTime" id="field_weeklyWorkTime"
+                        [(ngModel)]="affiliate.weeklyWorkTime" required/>
+                    <div [hidden]="!(editForm.controls.weeklyWorkTime?.dirty && editForm.controls.weeklyWorkTime?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.weeklyWorkTime?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.weeklyWorkTime?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

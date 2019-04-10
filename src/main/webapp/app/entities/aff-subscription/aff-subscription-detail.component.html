@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="affSubscription">
+            <h2><span jhiTranslate="affiliateApp.affSubscription.detail.title">Aff Subscription</span> {{affSubscription.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="affiliateApp.affSubscription.idAssurance">Id Assurance</span></dt>
+                <dd>
+                    <span>{{affSubscription.idAssurance}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affSubscription.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{affSubscription.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affSubscription.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{affSubscription.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affSubscription.affiliate">Affiliate</span></dt>
+                <dd>
+                    <div *ngIf="affSubscription.affiliate">
+                        <a [routerLink]="['/affiliate', affSubscription.affiliate?.id, 'view']">{{affSubscription.affiliate?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aff-subscription', affSubscription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

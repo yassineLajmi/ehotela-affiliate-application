@@ -1,0 +1,24 @@
+{
+    "affiliateApp": {
+        "affSubscription": {
+            "home": {
+                "title": "AffSubscriptions",
+                "createLabel": "Genera un nuovo Aff Subscription",
+                "createOrEditLabel": "Genera o modifica un Aff Subscription"
+            },
+            "created": "&Egrave; stato generato un nuovo Aff Subscription con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Aff Subscription identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Aff Subscription con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Aff Subscription {{ id }}?"
+            },
+            "detail": {
+                "title": "Aff Subscription"
+            },
+            "idAssurance": "Id Assurance",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "affiliate": "Affiliate"
+        }
+    }
+}

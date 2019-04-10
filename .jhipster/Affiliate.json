@@ -1,0 +1,91 @@
+{
+    "name": "Affiliate",
+    "fields": [
+        {
+            "fieldName": "numeroAffilie",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresseLigne1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresseLigne2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroPostal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "localite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "canton",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "langue",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "groupeCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "groupeNom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isCcnt",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "timeType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "groupType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "weeklyWorkTime",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "rubric",
+            "otherEntityRelationshipName": "affiliate",
+            "relationshipName": "employee"
+        }
+    ],
+    "changelogDate": "20190409115416",
+    "entityTableName": "affiliate",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

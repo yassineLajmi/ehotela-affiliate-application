@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="affiliate">
+            <h2><span jhiTranslate="affiliateApp.affiliate.detail.title">Affiliate</span> {{affiliate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="affiliateApp.affiliate.numeroAffilie">Numero Affilie</span></dt>
+                <dd>
+                    <span>{{affiliate.numeroAffilie}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.titre">Titre</span></dt>
+                <dd>
+                    <span>{{affiliate.titre}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.noms">Noms</span></dt>
+                <dd>
+                    <span>{{affiliate.noms}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.adresseLigne1">Adresse Ligne 1</span></dt>
+                <dd>
+                    <span>{{affiliate.adresseLigne1}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.adresseLigne2">Adresse Ligne 2</span></dt>
+                <dd>
+                    <span>{{affiliate.adresseLigne2}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.numeroPostal">Numero Postal</span></dt>
+                <dd>
+                    <span>{{affiliate.numeroPostal}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.localite">Localite</span></dt>
+                <dd>
+                    <span>{{affiliate.localite}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.canton">Canton</span></dt>
+                <dd>
+                    <span>{{affiliate.canton}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.langue">Langue</span></dt>
+                <dd>
+                    <span>{{affiliate.langue}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.groupeCode">Groupe Code</span></dt>
+                <dd>
+                    <span>{{affiliate.groupeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.groupeNom">Groupe Nom</span></dt>
+                <dd>
+                    <span>{{affiliate.groupeNom}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.isCcnt">Is Ccnt</span></dt>
+                <dd>
+                    <span>{{affiliate.isCcnt}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.timeType">Time Type</span></dt>
+                <dd>
+                    <span>{{affiliate.timeType}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.groupType">Group Type</span></dt>
+                <dd>
+                    <span>{{affiliate.groupType}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.affiliate.weeklyWorkTime">Weekly Work Time</span></dt>
+                <dd>
+                    <span>{{affiliate.weeklyWorkTime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/affiliate', affiliate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

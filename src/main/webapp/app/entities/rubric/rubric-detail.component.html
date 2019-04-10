@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rubric">
+            <h2><span jhiTranslate="affiliateApp.rubric.detail.title">Rubric</span> {{rubric.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="affiliateApp.rubric.description">Description</span></dt>
+                <dd>
+                    <span>{{rubric.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{rubric.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{rubric.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.rubricType">Rubric Type</span></dt>
+                <dd>
+                    <span>{{rubric.rubricType}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.totalRate">Total Rate</span></dt>
+                <dd>
+                    <span>{{rubric.totalRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.sex">Sex</span></dt>
+                <dd>
+                    <span>{{rubric.sex}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.startAge">Start Age</span></dt>
+                <dd>
+                    <span>{{rubric.startAge}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.endAge">End Age</span></dt>
+                <dd>
+                    <span>{{rubric.endAge}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.employeeRate">Employee Rate</span></dt>
+                <dd>
+                    <span>{{rubric.employeeRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.diRate">Di Rate</span></dt>
+                <dd>
+                    <span>{{rubric.diRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.ailSalaryLimit">Ail Salary Limit</span></dt>
+                <dd>
+                    <span>{{rubric.ailSalaryLimit}}</span>
+                </dd>
+                <dt><span jhiTranslate="affiliateApp.rubric.affiliate">Affiliate</span></dt>
+                <dd>
+                    <div *ngIf="rubric.affiliate">
+                        <a [routerLink]="['/affiliate', rubric.affiliate?.id, 'view']">{{rubric.affiliate?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rubric', rubric.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

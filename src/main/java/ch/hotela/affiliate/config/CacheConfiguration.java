@@ -38,6 +38,11 @@ public class CacheConfiguration {
             cm.createCache(ch.hotela.affiliate.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(ch.hotela.affiliate.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(ch.hotela.affiliate.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(ch.hotela.affiliate.domain.Affiliate.class.getName(), jcacheConfiguration);
+            cm.createCache(ch.hotela.affiliate.domain.Affiliate.class.getName() + ".affiliates", jcacheConfiguration);
+            cm.createCache(ch.hotela.affiliate.domain.Affiliate.class.getName() + ".employees", jcacheConfiguration);
+            cm.createCache(ch.hotela.affiliate.domain.Rubric.class.getName(), jcacheConfiguration);
+            cm.createCache(ch.hotela.affiliate.domain.AffSubscription.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
