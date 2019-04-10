@@ -1,0 +1,44 @@
+{
+    "name": "AffSubscription",
+    "fields": [
+        {
+            "fieldName": "idAssurance",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "affiliate",
+            "otherEntityRelationshipName": "affSubscription",
+            "relationshipName": "affiliate",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190409115418",
+    "entityTableName": "aff_subscription",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

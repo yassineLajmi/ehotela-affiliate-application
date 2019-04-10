@@ -1,0 +1,150 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-rubric-heading" jhiTranslate="affiliateApp.rubric.home.createOrEditLabel">Create or edit a Rubric</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!rubric.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="rubric.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="rubric.description" required/>
+                    <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="rubric.startDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.startDate?.dirty && editForm.controls.startDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" [(ngModel)]="rubric.endDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.endDate?.dirty && editForm.controls.endDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.rubricType" for="field_rubricType">Rubric Type</label>
+                    <input type="text" class="form-control" name="rubricType" id="field_rubricType"
+                        [(ngModel)]="rubric.rubricType" required/>
+                    <div [hidden]="!(editForm.controls.rubricType?.dirty && editForm.controls.rubricType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.rubricType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.totalRate" for="field_totalRate">Total Rate</label>
+                    <input type="number" class="form-control" name="totalRate" id="field_totalRate"
+                        [(ngModel)]="rubric.totalRate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.sex" for="field_sex">Sex</label>
+                    <input type="text" class="form-control" name="sex" id="field_sex"
+                        [(ngModel)]="rubric.sex" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.startAge" for="field_startAge">Start Age</label>
+                    <input type="number" class="form-control" name="startAge" id="field_startAge"
+                        [(ngModel)]="rubric.startAge" required/>
+                    <div [hidden]="!(editForm.controls.startAge?.dirty && editForm.controls.startAge?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.startAge?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.startAge?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.endAge" for="field_endAge">End Age</label>
+                    <input type="number" class="form-control" name="endAge" id="field_endAge"
+                        [(ngModel)]="rubric.endAge" required/>
+                    <div [hidden]="!(editForm.controls.endAge?.dirty && editForm.controls.endAge?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endAge?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.endAge?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.employeeRate" for="field_employeeRate">Employee Rate</label>
+                    <input type="number" class="form-control" name="employeeRate" id="field_employeeRate"
+                        [(ngModel)]="rubric.employeeRate" required/>
+                    <div [hidden]="!(editForm.controls.employeeRate?.dirty && editForm.controls.employeeRate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.employeeRate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.employeeRate?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.diRate" for="field_diRate">Di Rate</label>
+                    <input type="number" class="form-control" name="diRate" id="field_diRate"
+                        [(ngModel)]="rubric.diRate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.ailSalaryLimit" for="field_ailSalaryLimit">Ail Salary Limit</label>
+                    <input type="number" class="form-control" name="ailSalaryLimit" id="field_ailSalaryLimit"
+                        [(ngModel)]="rubric.ailSalaryLimit" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="affiliateApp.rubric.affiliate" for="field_affiliate">Affiliate</label>
+                    <select class="form-control" id="field_affiliate" name="affiliate" [(ngModel)]="rubric.affiliate" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="affiliateOption.id === rubric.affiliate?.id ? rubric.affiliate : affiliateOption" *ngFor="let affiliateOption of affiliates; trackBy: trackAffiliateById">{{affiliateOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

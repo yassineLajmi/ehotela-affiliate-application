@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="affiliateApp.rubric.home.title">Rubrics</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rubric" [routerLink]="['/rubric/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="affiliateApp.rubric.home.createLabel">
+            Create new Rubric
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="rubrics">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.description">Description</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.startDate">Start Date</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.endDate">End Date</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.rubricType">Rubric Type</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.totalRate">Total Rate</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.sex">Sex</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.startAge">Start Age</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.endAge">End Age</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.employeeRate">Employee Rate</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.diRate">Di Rate</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.ailSalaryLimit">Ail Salary Limit</span></th>
+            <th><span jhiTranslate="affiliateApp.rubric.affiliate">Affiliate</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rubric of rubrics ;trackBy: trackId">
+                <td><a [routerLink]="['/rubric', rubric.id, 'view' ]">{{rubric.id}}</a></td>
+                <td>{{rubric.description}}</td>
+                <td>{{rubric.startDate | date:'mediumDate'}}</td>
+                <td>{{rubric.endDate | date:'mediumDate'}}</td>
+                <td>{{rubric.rubricType}}</td>
+                <td>{{rubric.totalRate}}</td>
+                <td>{{rubric.sex}}</td>
+                <td>{{rubric.startAge}}</td>
+                <td>{{rubric.endAge}}</td>
+                <td>{{rubric.employeeRate}}</td>
+                <td>{{rubric.diRate}}</td>
+                <td>{{rubric.ailSalaryLimit}}</td>
+                <td>
+                    <div *ngIf="rubric.affiliate">
+                        <a [routerLink]="['../affiliate', rubric.affiliate?.id, 'view' ]" >{{rubric.affiliate?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/rubric', rubric.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/rubric', rubric.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'rubric', { outlets: { popup: rubric.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

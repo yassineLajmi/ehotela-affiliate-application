@@ -1,0 +1,36 @@
+{
+    "affiliateApp": {
+        "affiliate": {
+            "home": {
+                "title": "Affiliates",
+                "createLabel": "Créer un nouveau Affiliate",
+                "createOrEditLabel": "Créer ou éditer un Affiliate"
+            },
+            "created": "Un nouveau Affiliate a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Affiliate avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Affiliate avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Affiliate {{ id }} ?"
+            },
+            "detail": {
+                "title": "Affiliate"
+            },
+            "numeroAffilie": "Numero Affilie",
+            "titre": "Titre",
+            "noms": "Noms",
+            "adresseLigne1": "Adresse Ligne 1",
+            "adresseLigne2": "Adresse Ligne 2",
+            "numeroPostal": "Numero Postal",
+            "localite": "Localite",
+            "canton": "Canton",
+            "langue": "Langue",
+            "groupeCode": "Groupe Code",
+            "groupeNom": "Groupe Nom",
+            "isCcnt": "Is Ccnt",
+            "timeType": "Time Type",
+            "groupType": "Group Type",
+            "weeklyWorkTime": "Weekly Work Time",
+            "employee": "Employee"
+        }
+    }
+}

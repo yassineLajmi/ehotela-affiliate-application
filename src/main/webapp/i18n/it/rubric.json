@@ -1,0 +1,32 @@
+{
+    "affiliateApp": {
+        "rubric": {
+            "home": {
+                "title": "Rubrics",
+                "createLabel": "Genera un nuovo Rubric",
+                "createOrEditLabel": "Genera o modifica un Rubric"
+            },
+            "created": "&Egrave; stato generato un nuovo Rubric con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Rubric identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Rubric con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Rubric {{ id }}?"
+            },
+            "detail": {
+                "title": "Rubric"
+            },
+            "description": "Description",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "rubricType": "Rubric Type",
+            "totalRate": "Total Rate",
+            "sex": "Sex",
+            "startAge": "Start Age",
+            "endAge": "End Age",
+            "employeeRate": "Employee Rate",
+            "diRate": "Di Rate",
+            "ailSalaryLimit": "Ail Salary Limit",
+            "affiliate": "Affiliate"
+        }
+    }
+}

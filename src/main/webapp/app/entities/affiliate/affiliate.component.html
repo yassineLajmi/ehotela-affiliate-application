@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="affiliateApp.affiliate.home.title">Affiliates</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-affiliate" [routerLink]="['/affiliate/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="affiliateApp.affiliate.home.createLabel">
+            Create new Affiliate
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="affiliates">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroAffilie"><span jhiTranslate="affiliateApp.affiliate.numeroAffilie">Numero Affilie</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="titre"><span jhiTranslate="affiliateApp.affiliate.titre">Titre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="noms"><span jhiTranslate="affiliateApp.affiliate.noms">Noms</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adresseLigne1"><span jhiTranslate="affiliateApp.affiliate.adresseLigne1">Adresse Ligne 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adresseLigne2"><span jhiTranslate="affiliateApp.affiliate.adresseLigne2">Adresse Ligne 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroPostal"><span jhiTranslate="affiliateApp.affiliate.numeroPostal">Numero Postal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="localite"><span jhiTranslate="affiliateApp.affiliate.localite">Localite</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="canton"><span jhiTranslate="affiliateApp.affiliate.canton">Canton</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="langue"><span jhiTranslate="affiliateApp.affiliate.langue">Langue</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="groupeCode"><span jhiTranslate="affiliateApp.affiliate.groupeCode">Groupe Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="groupeNom"><span jhiTranslate="affiliateApp.affiliate.groupeNom">Groupe Nom</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isCcnt"><span jhiTranslate="affiliateApp.affiliate.isCcnt">Is Ccnt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="timeType"><span jhiTranslate="affiliateApp.affiliate.timeType">Time Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="groupType"><span jhiTranslate="affiliateApp.affiliate.groupType">Group Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyWorkTime"><span jhiTranslate="affiliateApp.affiliate.weeklyWorkTime">Weekly Work Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let affiliate of affiliates ;trackBy: trackId">
+                <td><a [routerLink]="['/affiliate', affiliate.id, 'view' ]">{{affiliate.id}}</a></td>
+                <td>{{affiliate.numeroAffilie}}</td>
+                <td>{{affiliate.titre}}</td>
+                <td>{{affiliate.noms}}</td>
+                <td>{{affiliate.adresseLigne1}}</td>
+                <td>{{affiliate.adresseLigne2}}</td>
+                <td>{{affiliate.numeroPostal}}</td>
+                <td>{{affiliate.localite}}</td>
+                <td>{{affiliate.canton}}</td>
+                <td>{{affiliate.langue}}</td>
+                <td>{{affiliate.groupeCode}}</td>
+                <td>{{affiliate.groupeNom}}</td>
+                <td>{{affiliate.isCcnt}}</td>
+                <td>{{affiliate.timeType}}</td>
+                <td>{{affiliate.groupType}}</td>
+                <td>{{affiliate.weeklyWorkTime}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/affiliate', affiliate.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/affiliate', affiliate.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'affiliate', { outlets: { popup: affiliate.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="affiliates && affiliates.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
